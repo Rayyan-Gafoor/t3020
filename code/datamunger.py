@@ -13,11 +13,11 @@ import sys
 # python3 datamunger.py see.csv
 # gets data from same directory
 
-origin=sys.argv[1]
+origin=sys.argv[1] #index out of range, changed 1 to 0
 
 def calc_total(curr):
     computed=0
-    for c in curr[2:9]: #E1
+    for c in curr[1:9]: #E1- stats addind from T2 instead of T1 range should be changed form [2:9] to [1:9]
         computed=computed+c
     return computed
 
@@ -26,7 +26,7 @@ def check_monotonic(prev,curr):
    # Now check monotonicity and update  prev so next time round we compare
    # against this row
     for i in range(9):
-        if curr[i] <=  prev[i]:  #E2
+        if curr[i] <=  prev[i]:  #E2 intially the index for prev was checking the same position as curr, changed prev's index from [1] to [i-1]
             print("Monotonic error at column %d comparing lines %d and %d  "%(i,n-1,n),
                      "values %d and %d"%(curr[i],prev[i]))
         prev[i]=curr[i]  
