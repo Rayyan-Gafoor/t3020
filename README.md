@@ -3,7 +3,7 @@
 
 Name: Rayyan Gafoor 1839637
 Date: 8 June
-
+Scott Hazelhurst
 
 # Description of code -- for question 1.1 and 1.2
 
