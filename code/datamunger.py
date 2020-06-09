@@ -1,4 +1,4 @@
-
+print("Scott was here")
 
 import urllib
 import urllib.request
@@ -13,11 +13,11 @@ import sys
 # python3 datamunger.py see.csv
 # gets data from same directory
 
-origin=sys.argv[1]
+origin=sys.argv[1] 
 
 def calc_total(curr):
     computed=0
-    for c in curr[2:9]: #E1
+    for c in curr[1:9]: #E1- stats addind from T2 instead of T1 range should be changed form [2:9] to [1:9]
         computed=computed+c
     return computed
 
@@ -25,19 +25,19 @@ def calc_total(curr):
 def check_monotonic(prev,curr):
    # Now check monotonicity and update  prev so next time round we compare
    # against this row
-    for i in range(9):
-        if curr[i] <=  prev[i]:  #E2
+    for i in range(8): #we do not have to include T8
+        if curr[i] <  prev[i]:  # curr can equal to prev, therefore should not print error, rmeove "=" sign
             print("Monotonic error at column %d comparing lines %d and %d  "%(i,n-1,n),
                      "values %d and %d"%(curr[i],prev[i]))
         prev[i]=curr[i]  
 
 
 def check_row(n, prev, curr_str):
-    data = []
+    #data = [] - unused variable
     curr = []
-    for d in curr_str: #E3
+    for i in range(9): #E3 changed range
         try:
-            v = int(d)
+            v = int(curr_str[i])
             curr.append(v)
         except ValueError:  # missing data so can't convert
             return False
